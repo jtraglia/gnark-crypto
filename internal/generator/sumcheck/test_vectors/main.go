@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+
 	fiatshamir "github.com/consensys/gnark-crypto/fiat-shamir"
 	"github.com/consensys/gnark-crypto/internal/generator/test_vector_utils/small_rational"
 	"github.com/consensys/gnark-crypto/internal/generator/test_vector_utils/small_rational/polynomial"
@@ -48,7 +49,7 @@ func runMultilin(testCaseInfo *TestCaseInfo) error {
 	}
 
 	if err = sumcheck.Verify(singleMultilinLazyClaim{g: poly, claimedSum: claimedSum}, proof, fiatshamir.WithHash(hsh)); err != nil {
-		return fmt.Errorf("proof rejected: %v", err)
+		return fmt.Errorf("proof rejected: %w", err)
 	}
 
 	proof.PartialSumPolys[0][0].Add(&proof.PartialSumPolys[0][0], test_vector_utils.ToElement(1))
