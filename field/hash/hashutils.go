@@ -9,7 +9,6 @@ import (
 // https://tools.ietf.org/html/draft-irtf-cfrg-hash-to-curve-06#section-5
 // https://tools.ietf.org/html/rfc8017#section-4.1 (I2OSP/O2ISP)
 func ExpandMsgXmd(msg, dst []byte, lenInBytes int) ([]byte, error) {
-
 	h := sha256.New()
 	ell := (lenInBytes + h.Size() - 1) / h.Size() // ceil(len_in_bytes / b_in_bytes)
 	if ell > 255 {

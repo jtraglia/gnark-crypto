@@ -8,7 +8,6 @@ import (
 )
 
 func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) error {
-
 	// pedersen commitment scheme
 	conf.Package = "pedersen"
 	entries := []bavard.Entry{
@@ -16,5 +15,4 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 		{File: filepath.Join(baseDir, "pedersen_test.go"), Templates: []string{"pedersen.test.go.tmpl"}},
 	}
 	return bgen.Generate(conf, conf.Package, "./pedersen/template/", entries...)
-
 }

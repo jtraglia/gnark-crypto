@@ -72,7 +72,6 @@ type subTree struct {
 
 // sum returns the hash of the input data using the specified algorithm.
 func sum(h hash.Hash, data ...[]byte) []byte {
-
 	h.Reset()
 
 	for _, d := range data {
@@ -90,7 +89,6 @@ func sum(h hash.Hash, data ...[]byte) []byte {
 //
 //	Hash(0x00 || data)
 func leafSum(h hash.Hash, data []byte) []byte {
-
 	//return sum(h, leafHashPrefix, data)
 	return sum(h, data)
 }

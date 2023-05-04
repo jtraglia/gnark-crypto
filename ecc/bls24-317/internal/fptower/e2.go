@@ -203,7 +203,6 @@ var sqrtExp1, sqrtExp2 big.Int
 // Legendre beforehand.
 // cf https://eprint.iacr.org/2012/685.pdf (algo 9)
 func (z *E2) Sqrt(x *E2) *E2 {
-
 	var a1, alpha, b, x0, minusone E2
 
 	minusone.SetOne().Neg(&minusone)

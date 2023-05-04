@@ -60,7 +60,6 @@ func PairingCheck(P []G1Affine, Q []G2Affine) (bool, error) {
 // we use instead d=s ⋅ (p^3-1)(p+1)(p^2 - p +1)/r
 // where s is the cofactor 12(x_0+1) (El Housni and Guillevic)
 func FinalExponentiation(z *GT, _z ...*GT) GT {
-
 	var result GT
 	result.Set(z)
 
@@ -414,7 +413,6 @@ func MillerLoop(P []G1Affine, Q []G2Affine) (GT, error) {
 // doubleStep doubles a point in Homogenous projective coordinates, and evaluates the line in Miller loop
 // https://eprint.iacr.org/2013/722.pdf (Section 4.3)
 func (p *g1Proj) doubleStep(evaluations *lineEvaluation) {
-
 	// get some Element from our pool
 	var t1, A, B, C, D, E, EE, F, G, H, I, J, K fp.Element
 	A.Mul(&p.x, &p.y)
@@ -458,7 +456,6 @@ func (p *g1Proj) doubleStep(evaluations *lineEvaluation) {
 // addMixedStep point addition in Mixed Homogenous projective and Affine coordinates
 // https://eprint.iacr.org/2013/722.pdf (Section 4.3)
 func (p *g1Proj) addMixedStep(evaluations *lineEvaluation, a *G1Affine) {
-
 	// get some Element from our pool
 	var Y2Z1, X2Z1, O, L, C, D, E, F, G, H, t0, t1, t2, J fp.Element
 	Y2Z1.Mul(&a.Y, &p.z)
@@ -495,7 +492,6 @@ func (p *g1Proj) addMixedStep(evaluations *lineEvaluation, a *G1Affine) {
 // lineCompute computes the line through p in Homogenous projective coordinates
 // and a in affine coordinates. It does not compute the resulting point p+a.
 func (p *g1Proj) lineCompute(evaluations *lineEvaluation, a *G1Affine) {
-
 	// get some Element from our pool
 	var Y2Z1, X2Z1, O, L, t2, J fp.Element
 	Y2Z1.Mul(&a.Y, &p.z)

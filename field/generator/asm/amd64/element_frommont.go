@@ -71,7 +71,6 @@ func (f *FFAmd64) generateFromMont(forceADX bool) {
 	f.Mov(amd64.DX, t)
 
 	for i := 0; i < f.NbWords; i++ {
-
 		f.XORQ(amd64.DX, amd64.DX)
 
 		// m := t[0]*q'[0] mod W
@@ -101,7 +100,6 @@ func (f *FFAmd64) generateFromMont(forceADX bool) {
 		f.MOVQ(0, amd64.AX)
 		f.ADCXQ(amd64.AX, t[f.NbWordsLastIndex])
 		f.ADOXQ(amd64.AX, t[f.NbWordsLastIndex])
-
 	}
 
 	// ---------------------------------------------------------------------------------------------
@@ -119,5 +117,4 @@ func (f *FFAmd64) generateFromMont(forceADX bool) {
 		f.WriteLn("CALL ·_fromMontGeneric(SB)")
 		f.RET()
 	}
-
 }

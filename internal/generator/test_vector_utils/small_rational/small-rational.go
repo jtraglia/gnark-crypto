@@ -32,7 +32,6 @@ func (z *SmallRational) UpdateText() {
 }
 
 func (z *SmallRational) simplify() {
-
 	if z.numerator.BitLen() == 0 || z.denominator.BitLen() == 0 {
 		return
 	}
@@ -51,7 +50,6 @@ func (z *SmallRational) simplify() {
 
 	z.numerator = num
 	z.denominator = den
-
 }
 func (z *SmallRational) Square(x *SmallRational) *SmallRational {
 	var num, den big.Int
@@ -128,7 +126,6 @@ func (z *SmallRational) Neg(x *SmallRational) *SmallRational {
 }
 
 func (z *SmallRational) Double(x *SmallRational) *SmallRational {
-
 	var y big.Int
 
 	if x.denominator.Bit(0) == 0 {
@@ -190,7 +187,6 @@ func (z *SmallRational) Cmp(x *SmallRational) int {
 	X.Abs(&X)
 
 	return Z.Cmp(&X) * zSign
-
 }
 
 func BatchInvert(a []SmallRational) []SmallRational {
@@ -231,7 +227,6 @@ func (z *SmallRational) SetInt64(i int64) *SmallRational {
 }
 
 func (z *SmallRational) SetRandom() (*SmallRational, error) {
-
 	bytes := make([]byte, 1)
 	n, err := rand.Read(bytes)
 	if err != nil {
@@ -263,7 +258,6 @@ func (z *SmallRational) IsOne() bool {
 }
 
 func (z *SmallRational) Text(base int) string {
-
 	if z.denominator.BitLen() == 0 {
 		return "0"
 	}
@@ -298,7 +292,6 @@ func (z *SmallRational) Set(x *SmallRational) *SmallRational {
 }
 
 func (z *SmallRational) SetInterface(x interface{}) (*SmallRational, error) {
-
 	switch v := x.(type) {
 	case *SmallRational:
 		*z = *v

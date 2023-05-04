@@ -62,7 +62,6 @@ func (f *Extension) Mul(x Element, y Element) Element {
 	alpha := big.NewInt(f.RootOf)
 
 	for p := maxP; p >= 0; p-- {
-
 		var rp big.Int
 
 		for m := max(p-(len(y)-1), 0); m < len(x) && m <= p; m++ {
@@ -109,7 +108,6 @@ func (f *Extension) reduce(z Element) {
 
 // Sqrt returning √ x, or nil if x is not qr.
 func (f *Extension) Sqrt(x Element) Element {
-
 	z := make(Element, f.Degree)
 	switch f.Degree {
 	case 1:
@@ -204,7 +202,6 @@ func (f *Extension) Inverse(x Element) Element {
 }
 
 func (f *Extension) Exp(x Element, exp *big.Int) Element {
-
 	if exp.BitLen() == 0 {
 		return f.FromInt64(1)
 	}

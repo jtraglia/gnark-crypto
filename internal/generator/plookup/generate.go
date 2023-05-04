@@ -8,7 +8,6 @@ import (
 )
 
 func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) error {
-
 	// kzg commitment scheme
 	conf.Package = "plookup"
 	entries := []bavard.Entry{
@@ -18,5 +17,4 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 		{File: filepath.Join(baseDir, "plookup_test.go"), Templates: []string{"plookup.test.go.tmpl"}},
 	}
 	return bgen.Generate(conf, conf.Package, "./plookup/template/", entries...)
-
 }

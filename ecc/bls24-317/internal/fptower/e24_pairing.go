@@ -78,7 +78,6 @@ func (z *E24) Expt(x *E24) *E24 {
 
 // MulBy014 multiplication by sparse element (c0, c1, 0, 0, c4, 0)
 func (z *E24) MulBy014(c0, c1, c4 *E4) *E24 {
-
 	var a, b E12
 	var d E4
 

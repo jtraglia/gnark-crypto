@@ -80,7 +80,6 @@ func (fq2 *Fq2Amd64) generateMulByNonResidueE2BN254() {
 }
 
 func (fq2 *Fq2Amd64) generateSquareE2BN254(forceCheck bool) {
-
 	const argSize = 16
 	minStackSize := 0
 	if forceCheck {
@@ -167,7 +166,6 @@ func (fq2 *Fq2Amd64) generateSquareE2BN254(forceCheck bool) {
 		fq2.WriteLn("CALL ·squareGenericE2(SB)")
 		fq2.RET()
 	}
-
 }
 
 func (fq2 *Fq2Amd64) generateMulE2BN254(forceCheck bool) {
@@ -288,7 +286,6 @@ func (fq2 *Fq2Amd64) generateMulE2BN254(forceCheck bool) {
 	}
 	fq2.Push(&registers, aStack...)
 	fq2.Push(&registers, cStack...)
-
 }
 
 func (fq2 *Fq2Amd64) generateMulDefine() {

@@ -123,7 +123,6 @@ func (f *FFAmd64) MulADX(registers *amd64.Registers, x, y func(int) string, t []
 		f.MOVQ(0, amd64.AX)
 		f.ADCXQ(amd64.AX, t[f.NbWordsLastIndex])
 		f.ADOXQ(A, t[f.NbWordsLastIndex])
-
 	}
 
 	if hasFreeRegister {
@@ -294,7 +293,6 @@ func (f *FFAmd64) generateMul(forceADX bool) {
 					registers.Push(x, y)
 					registers.Push(_x...)
 				}
-
 			}
 			y = registers.Pop()
 
@@ -302,7 +300,6 @@ func (f *FFAmd64) generateMul(forceADX bool) {
 			yat = func(i int) string {
 				return y.At(i)
 			}
-
 		}
 
 		f.MulADX(&registers, xat, yat, t)
@@ -330,6 +327,5 @@ func (f *FFAmd64) generateMul(forceADX bool) {
 		f.MOVQ(amd64.AX, "16(SP)")
 		f.WriteLn("CALL ·_mulGeneric(SB)")
 		f.RET()
-
 	}
 }

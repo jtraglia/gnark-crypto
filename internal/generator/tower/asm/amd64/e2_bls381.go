@@ -301,10 +301,8 @@ func (fq2 *Fq2Amd64) generateMulE2BLS381(forceCheck bool) {
 		fq2.MOVQ(amd64.AX, "16(SP)")
 		fq2.WriteLn("CALL ·mulGenericE2(SB)")
 		fq2.RET()
-
 	}
 
 	fq2.Push(&registers, aStack...)
 	fq2.Push(&registers, cStack...)
-
 }

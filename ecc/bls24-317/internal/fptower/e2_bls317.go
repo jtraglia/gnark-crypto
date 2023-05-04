@@ -53,7 +53,6 @@ func (z *E2) MulByNonResidue(x *E2) *E2 {
 
 // MulByNonResidueInv multiplies a E2 by (1,1)^{-1}
 func (z *E2) MulByNonResidueInv(x *E2) *E2 {
-
 	var twoInv fp.Element
 	twoInv.SetString("68196535552147955757549882954137028530972556060709796988605069651952986598616012809013078365526")
 	var tmp fp.Element

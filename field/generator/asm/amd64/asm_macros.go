@@ -151,7 +151,6 @@ func (f *FFAmd64) Mov(i1, i2 interface{}, offsets ...int) {
 	default:
 		panic("unsupported")
 	}
-
 }
 
 func (f *FFAmd64) Add(i1, i2 interface{}, offsets ...int) {
@@ -163,7 +162,6 @@ func (f *FFAmd64) Add(i1, i2 interface{}, offsets ...int) {
 		}
 	}
 	switch c1 := i1.(type) {
-
 	case amd64.Register:
 		switch c2 := i2.(type) {
 		default:
@@ -204,7 +202,6 @@ func (f *FFAmd64) Sub(i1, i2 interface{}, offsets ...int) {
 		}
 	}
 	switch c1 := i1.(type) {
-
 	case amd64.Register:
 		switch c2 := i2.(type) {
 		default:

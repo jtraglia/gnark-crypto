@@ -22,7 +22,6 @@ import (
 // https://tools.ietf.org/html/draft-irtf-cfrg-hash-to-curve-06#section-4.1
 // Shallue and van de Woestijne method, works for any elliptic curve in Weierstrass curve
 func MapToCurve2(u fptower.E4) G2Affine {
-
 	var res G2Affine
 
 	// constants

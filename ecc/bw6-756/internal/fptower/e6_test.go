@@ -26,7 +26,6 @@ import (
 // tests
 
 func TestE6Serialization(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	parameters.MinSuccessfulTests = 100
 
@@ -50,7 +49,6 @@ func TestE6Serialization(t *testing.T) {
 }
 
 func TestE6ReceiverIsOperand(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	parameters.MinSuccessfulTests = 100
 
@@ -162,7 +160,6 @@ func TestE6ReceiverIsOperand(t *testing.T) {
 }
 
 func TestE6Ops(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	parameters.MinSuccessfulTests = 100
 
@@ -338,7 +335,6 @@ func TestE6Ops(t *testing.T) {
 	))
 
 	properties.TestingRun(t, gopter.ConsoleReporter(false))
-
 }
 
 // ------------------------------------------------------------

@@ -13,7 +13,6 @@ import (
 )
 
 func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) error {
-
 	packageName := strings.ReplaceAll(conf.Name, "-", "")
 
 	var entries []bavard.Entry

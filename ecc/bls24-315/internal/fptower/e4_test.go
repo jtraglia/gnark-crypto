@@ -192,7 +192,6 @@ func TestE4Ops(t *testing.T) {
 
 	properties.Property("[BLS24-315] BatchInvertE4 should output the same result as Inverse", prop.ForAll(
 		func(a, b, c *E4) bool {
-
 			batch := BatchInvertE4([]E4{*a, *b, *c})
 			a.Inverse(a)
 			b.Inverse(b)

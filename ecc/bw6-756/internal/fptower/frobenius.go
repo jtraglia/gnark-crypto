@@ -89,7 +89,6 @@ var _frobBC = fp.Element{
 
 // Frobenius set z in E6 to Frobenius(x), return z
 func (z *E6) Frobenius(x *E6) *E6 {
-
 	z.B0.A0 = x.B0.A0
 	z.B0.A1.Mul(&x.B0.A1, &_frobA)
 	z.B0.A2.Mul(&x.B0.A2, &_frobB)

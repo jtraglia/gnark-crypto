@@ -107,7 +107,6 @@ func (fq2 *Fq2Amd64) generateAddE2() {
 	fq2.Mov(t, r, 0, fq2.NbWords)
 
 	fq2.RET()
-
 }
 
 func (fq2 *Fq2Amd64) generateDoubleE2() {
@@ -218,7 +217,6 @@ func (fq2 *Fq2Amd64) generateNegE2() {
 	}
 
 	fq2.RET()
-
 }
 
 func (fq2 *Fq2Amd64) generateSubE2() {
@@ -262,7 +260,6 @@ func (fq2 *Fq2Amd64) generateSubE2() {
 	fq2.Mov(t, r, 0, fq2.NbWords)
 
 	fq2.RET()
-
 }
 
 func (fq2 *Fq2Amd64) modReduceAfterSub(registers *ramd64.Registers, zero ramd64.Register, t []ramd64.Register) {

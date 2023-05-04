@@ -81,7 +81,6 @@ func init() {
 	lambdaGLV.SetString("37718080363155996902926221483475020450927657555482586988616620542887997980018", 10)  // 3^((r-1)/3)
 	_r := fr.Modulus()
 	ecc.PrecomputeLattice(_r, &lambdaGLV, &glvBasis)
-
 }
 
 // Generators return the generators of the r-torsion group, resp. in ker(pi-id), ker(Tr)

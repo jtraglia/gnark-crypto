@@ -15,7 +15,6 @@ import (
 )
 
 func runMultilin(testCaseInfo *TestCaseInfo) error {
-
 	var poly polynomial.MultiLin
 	if v, err := test_vector_utils.SliceToElementSlice(testCaseInfo.Values); err == nil {
 		poly = v

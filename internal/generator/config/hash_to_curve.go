@@ -75,7 +75,6 @@ func (parameters *HashSuiteSvdw) GetInfo(baseField *field.FieldConfig, g *Point,
 }
 
 func (suite *HashSuiteSswu) GetInfo(baseField *field.FieldConfig, g *Point, name string) HashSuiteInfo {
-
 	f := field.NewTower(baseField, g.CoordExtDegree, g.CoordExtRoot)
 	fieldSizeMod256 := uint8(f.Size.Bits()[0])
 
@@ -89,7 +88,6 @@ func (suite *HashSuiteSswu) GetInfo(baseField *field.FieldConfig, g *Point, name
 
 		c[1] = f.Neg(Z)
 		c[1] = f.Sqrt(c[1])
-
 	} else if fieldSizeMod256%8 == 5 {
 		c = make([]field.Element, 3)
 		c[0] = make([]big.Int, 1)
@@ -102,7 +100,6 @@ func (suite *HashSuiteSswu) GetInfo(baseField *field.FieldConfig, g *Point, name
 		c[2] = f.Inverse(c[1])
 		c[2] = f.Mul(Z, c[2])
 		c[2] = f.Sqrt(c[2])
-
 	} else if fieldSizeMod256%8 == 1 {
 		ONE := big.NewInt(1)
 		c = make([]field.Element, 3)
@@ -127,7 +124,6 @@ func (suite *HashSuiteSswu) GetInfo(baseField *field.FieldConfig, g *Point, name
 		c7Pow.Add(&c[0][1], ONE)
 		c7Pow.Rsh(&c7Pow, 1)
 		c[2] = f.Exp(Z, &c7Pow)
-
 	} else {
 		panic("this is logically impossible")
 	}

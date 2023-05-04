@@ -178,7 +178,6 @@ func GenerateFF(F *config.FieldConfig, outputDir string) error {
 				return err
 			}
 		}
-
 	}
 
 	if F.ASM {

@@ -73,7 +73,6 @@ type RSis struct {
 // maxNbElementsToHash: maximum number of field elements the instance handles
 // used to derived n, the number of polynomials in A, and max size of instance's internal buffer.
 func NewRSis(seed int64, logTwoDegree, logTwoBound, maxNbElementsToHash int) (*RSis, error) {
-
 	if logTwoBound > 64 {
 		return nil, errors.New("logTwoBound too large")
 	}
@@ -206,7 +205,6 @@ func (r *RSis) Reset() {
 
 // Size returns the number of bytes Sum will return.
 func (r *RSis) Size() int {
-
 	// The size in bits is the size in bits of a polynomial in A.
 	degree := len(r.A[0])
 	totalSize := degree * fr.Modulus().BitLen() / 8
@@ -233,11 +231,9 @@ func NewRingSISMaker(seed int64, logTwoDegree, logTwoBound, maxNbElementsToHash 
 		}
 		return h
 	}, nil
-
 }
 
 func genRandom(seed, i, j int64, buf *bytes.Buffer) fr.Element {
-
 	buf.Reset()
 	buf.WriteString("SIS")
 	binary.Write(buf, binary.BigEndian, seed)
@@ -258,7 +254,6 @@ func genRandom(seed, i, j int64, buf *bytes.Buffer) fr.Element {
 // The result is not FFTinversed. The fft inverse is done once every
 // multiplications are done.
 func mulMod(pLagrangeCosetBitReversed, qLagrangeCosetBitReversed []fr.Element) []fr.Element {
-
 	res := make([]fr.Element, len(pLagrangeCosetBitReversed))
 	for i := 0; i < len(pLagrangeCosetBitReversed); i++ {
 		res[i].Mul(&pLagrangeCosetBitReversed[i], &qLagrangeCosetBitReversed[i])
@@ -268,7 +263,6 @@ func mulMod(pLagrangeCosetBitReversed, qLagrangeCosetBitReversed []fr.Element) [
 	// r.Domain.FFTInverse(res, fft.DIT, true)
 
 	return res
-
 }
 
 // mulMod + accumulate in res.
@@ -327,7 +321,6 @@ func LimbDecomposeBytes(buf []byte, m fr.Vector, logTwoBound int) {
 // we have the guarantee that 2 bits contributing to different field elements cannot
 // be part of the same limb.
 func limbDecomposeBytes(buf []byte, m fr.Vector, logTwoBound, degree int, mValues *bitset.BitSet) {
-
 	// bitwise decomposition of the buffer, in order to build m (the vector to hash)
 	// as a list of polynomials, whose coefficients are less than r.B bits long.
 	// Say buf=[0xbe,0x0f]. As a stream of bits it is interpreted like this:
@@ -348,7 +341,6 @@ func limbDecomposeBytes(buf []byte, m fr.Vector, logTwoBound, degree int, mValue
 	mPos := 0
 	for fieldStart := 0; fieldStart < nbBits; {
 		for bitInField := 0; bitInField < fr.Bytes*8; {
-
 			j := bitInField % logTwoBound
 
 			// r.LogTwoBound < 64; we just use the first word of our element here,

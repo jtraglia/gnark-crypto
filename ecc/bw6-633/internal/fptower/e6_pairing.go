@@ -11,7 +11,6 @@ func (z *E6) nSquareCompressed(n int) {
 // Expt set z to x^t in E6 and return z (t is the seed of the curve)
 // -2**32+2**30+2**22-2**20+1
 func (z *E6) Expt(x *E6) *E6 {
-
 	var result, x20, x22, x30, x32 E6
 	result.Set(x)
 
@@ -38,7 +37,6 @@ func (z *E6) Expt(x *E6) *E6 {
 
 // MulBy034 multiplication by sparse element (c0,0,0,c3,c4,0)
 func (z *E6) MulBy034(c0, c3, c4 *fp.Element) *E6 {
-
 	var a, b, d E3
 
 	a.MulByElement(&z.B0, c0)

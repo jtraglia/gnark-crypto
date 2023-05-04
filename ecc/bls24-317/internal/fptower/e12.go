@@ -148,7 +148,6 @@ func (z *E12) Mul(x, y *E12) *E12 {
 
 // Square sets z to the E12 product of x,x, returns z
 func (z *E12) Square(x *E12) *E12 {
-
 	// Algorithm 16 from https://eprint.iacr.org/2010/354.pdf
 	var c4, c5, c1, c2, c3, c0 E4
 	c4.Mul(&x.C0, &x.C1).Double(&c4)
@@ -321,7 +320,6 @@ func (x *E12) MulBy12(b1, b2 *E4) *E12 {
 
 // MulBy01 multiplication by sparse element (c0,c1,0)
 func (z *E12) MulBy01(c0, c1 *E4) *E12 {
-
 	var a, b, tmp, t0, t1, t2 E4
 
 	a.Mul(&z.C0, c0)
@@ -363,7 +361,6 @@ func (z *E12) MulByE2(x *E12, y *E4) *E12 {
 
 // MulBy1 multiplication of E12 by sparse element (0, c1, 0)
 func (z *E12) MulBy1(c1 *E4) *E12 {
-
 	var b, tmp, t0, t1 E4
 	b.Mul(&z.C1, c1)
 

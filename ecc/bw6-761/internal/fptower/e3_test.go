@@ -12,7 +12,6 @@ import (
 // tests
 
 func TestE3ReceiverIsOperand(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	parameters.MinSuccessfulTests = 100
 
@@ -136,7 +135,6 @@ func TestE3ReceiverIsOperand(t *testing.T) {
 }
 
 func TestE3Ops(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	parameters.MinSuccessfulTests = 100
 
@@ -180,7 +178,6 @@ func TestE3Ops(t *testing.T) {
 
 	properties.Property("[BW761] BatchInvertE3 should output the same result as Inverse", prop.ForAll(
 		func(a, b, c *E3) bool {
-
 			batch := BatchInvertE3([]E3{*a, *b, *c})
 			a.Inverse(a)
 			b.Inverse(b)

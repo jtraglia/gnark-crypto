@@ -9,7 +9,6 @@ func (z *E24) nSquareCompressed(n int) {
 // Expt set z to x^t in E24 and return z (t is the seed of the curve)
 // -2**32+2**30+2**22-2**20+1
 func (z *E24) Expt(x *E24) *E24 {
-
 	var result, x20, x22, x30, x32 E24
 	result.Set(x)
 
@@ -36,7 +35,6 @@ func (z *E24) Expt(x *E24) *E24 {
 
 // MulBy034 multiplication by sparse element (c0,0,0,c3,c4,0)
 func (z *E24) MulBy034(c0, c3, c4 *E4) *E24 {
-
 	var a, b, d E12
 
 	a.MulByE2(&z.D0, c0)

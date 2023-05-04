@@ -19,5 +19,4 @@ func Generate(conf config.TwistedEdwardsCurve, baseDir string, bgen *bavard.Batc
 		{File: filepath.Join(baseDir, "marshal.go"), Templates: []string{"marshal.go.tmpl"}},
 	}
 	return bgen.Generate(conf, conf.Package, "./edwards/eddsa/template", entries...)
-
 }

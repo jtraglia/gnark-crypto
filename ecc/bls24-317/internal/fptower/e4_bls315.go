@@ -16,7 +16,6 @@ package fptower
 
 // MulBybTwistCurveCoeff multiplies by 4*(0,1)
 func (z *E4) MulBybTwistCurveCoeff(x *E4) *E4 {
-
 	var res E4
 	res.B1.Set(&x.B0)
 	res.B0.MulByNonResidue(&x.B1)

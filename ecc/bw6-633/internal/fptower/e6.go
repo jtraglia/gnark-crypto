@@ -122,7 +122,6 @@ func (z *E6) Mul(x, y *E6) *E6 {
 
 // Square set z=x*x in E6 and return z
 func (z *E6) Square(x *E6) *E6 {
-
 	//Algorithm 22 from https://eprint.iacr.org/2010/354.pdf
 	var c0, c2, c3 E3
 	c0.Sub(&x.B0, &x.B1)
@@ -140,7 +139,6 @@ func (z *E6) Square(x *E6) *E6 {
 // https://eprint.iacr.org/2010/542.pdf
 // Th. 3.2 with minor modifications to fit our tower
 func (z *E6) CyclotomicSquareCompressed(x *E6) *E6 {
-
 	var t [7]fp.Element
 
 	// t0 = g1²
@@ -224,7 +222,6 @@ func (z *E6) CyclotomicSquareCompressed(x *E6) *E6 {
 // if g3=g2=0 then g4=g5=g1=0 and g0=1 (x=1)
 // Theorem 3.1 is well-defined for all x in Gϕₙ\{1}
 func (z *E6) DecompressKarabina(x *E6) *E6 {
-
 	var t [3]fp.Element
 	var one fp.Element
 	one.SetOne()
@@ -293,7 +290,6 @@ func (z *E6) DecompressKarabina(x *E6) *E6 {
 //
 // Divisions by 4g3 or g2 is batched using Montgomery batch inverse
 func BatchDecompressKarabina(x []E6) []E6 {
-
 	n := len(x)
 	if n == 0 {
 		return x
@@ -638,7 +634,6 @@ const sizeOfFp = 80
 // of z as a big-endian byte array.
 // z.C1.B2.A1 | z.C1.B2.A0 | z.C1.B1.A1 | ...
 func (z *E6) Bytes() (r [SizeOfGT]byte) {
-
 	offset := 0
 	var buf [sizeOfFp]byte
 
@@ -788,7 +783,6 @@ func (z *E6) IsInSubGroup() bool {
 // "COMPRESSION IN FINITE FIELDS AND TORUS-BASED CRYPTOGRAPHY", K. RUBIN AND A. SILVERBERG
 // z.B1 == 0 only when z ∈ {-1,1}
 func (z *E6) CompressTorus() (E3, error) {
-
 	if z.B1.IsZero() {
 		return E3{}, errors.New("invalid input")
 	}
@@ -805,7 +799,6 @@ func (z *E6) CompressTorus() (E3, error) {
 // BatchCompressTorus GT/E6 elements to half their size
 // using a batch inversion
 func BatchCompressTorus(x []E6) ([]E3, error) {
-
 	n := len(x)
 	if n == 0 {
 		return []E3{}, errors.New("invalid input size")
@@ -837,7 +830,6 @@ func BatchCompressTorus(x []E6) ([]E3, error) {
 // element must be in the cyclotomic subgroup
 // "COMPRESSION IN FINITE FIELDS AND TORUS-BASED CRYPTOGRAPHY", K. RUBIN AND A. SILVERBERG
 func (z *E3) DecompressTorus() E6 {
-
 	var res, num, denum E6
 	num.B0.Set(z)
 	num.B1.SetOne()
@@ -852,7 +844,6 @@ func (z *E3) DecompressTorus() E6 {
 // BatchDecompressTorus GT/E6 compressed elements
 // using a batch inversion
 func BatchDecompressTorus(x []E3) ([]E6, error) {
-
 	n := len(x)
 	if n == 0 {
 		return []E6{}, errors.New("invalid input size")

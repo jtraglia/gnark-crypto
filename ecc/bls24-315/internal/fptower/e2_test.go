@@ -176,7 +176,6 @@ func TestE2ReceiverIsOperand(t *testing.T) {
 	))
 
 	properties.TestingRun(t, gopter.ConsoleReporter(false))
-
 }
 
 func TestE2MulMaxed(t *testing.T) {
@@ -379,7 +378,6 @@ func TestE2Ops(t *testing.T) {
 	))
 
 	properties.TestingRun(t, gopter.ConsoleReporter(false))
-
 }
 
 // ------------------------------------------------------------
@@ -491,7 +489,6 @@ func BenchmarkE2Conjugate(b *testing.B) {
 }
 
 func TestE2Div(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	properties := gopter.NewProperties(parameters)
 

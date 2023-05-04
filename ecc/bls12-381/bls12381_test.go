@@ -17,7 +17,6 @@ var (
 )
 
 func TestDeserializationG1(t *testing.T) {
-
 	type Test struct {
 		Input struct {
 			PubKeyHexStr string `yaml:"pubkey"`
@@ -53,7 +52,6 @@ func TestDeserializationG1(t *testing.T) {
 }
 
 func TestDeserializationG2(t *testing.T) {
-
 	type Test struct {
 		Input struct {
 			SignatureHexStr string `yaml:"signature"`

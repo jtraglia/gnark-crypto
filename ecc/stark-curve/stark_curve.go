@@ -61,7 +61,6 @@ func init() {
 	// (X,Y,Z) = (1,1,0)
 	g1Infinity.X.SetOne()
 	g1Infinity.Y.SetOne()
-
 }
 
 // Generators return the generators of the r-torsion group, resp. in ker(pi-id), ker(Tr)

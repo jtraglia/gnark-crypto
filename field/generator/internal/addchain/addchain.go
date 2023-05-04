@@ -64,7 +64,6 @@ var (
 
 // GetAddChain returns template data of a short addition chain for given big.Int
 func GetAddChain(n *big.Int) *AddChainData {
-
 	// init the cache only once.
 	once.Do(initCache)
 
@@ -321,7 +320,5 @@ func initCache() {
 
 		// save the data
 		mAddchains[filepath.Base(f.Name())] = data
-
 	}
-
 }

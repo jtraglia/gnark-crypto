@@ -64,7 +64,6 @@ func NewTranscript(h hash.Hash, challengesID ...string) Transcript {
 // are added is important. Once a challenge is computed, it cannot be
 // binded to other values.
 func (t *Transcript) Bind(challengeID string, bValue []byte) error {
-
 	challenge, ok := t.challenges[challengeID]
 	if !ok {
 		return errChallengeNotFound
@@ -80,7 +79,6 @@ func (t *Transcript) Bind(challengeID string, bValue []byte) error {
 	t.challenges[challengeID] = challenge
 
 	return nil
-
 }
 
 // ComputeChallenge computes the challenge corresponding to the given name.
@@ -88,7 +86,6 @@ func (t *Transcript) Bind(challengeID string, bValue []byte) error {
 // * H(name || previous_challenge || binded_values...) if the challenge is not the first one
 // * H(name || binded_values... ) if it is the first challenge
 func (t *Transcript) ComputeChallenge(challengeID string) ([]byte, error) {
-
 	challenge, ok := t.challenges[challengeID]
 	if !ok {
 		return nil, errChallengeNotFound
@@ -142,5 +139,4 @@ func (t *Transcript) ComputeChallenge(challengeID string) ([]byte, error) {
 	t.previous = &challenge
 
 	return res, nil
-
 }

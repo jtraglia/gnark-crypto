@@ -107,7 +107,6 @@ func (z *E2) norm(x *fp.Element) {
 
 // MulBybTwistCurveCoeff multiplies by 1/(0,1)
 func (z *E2) MulBybTwistCurveCoeff(x *E2) *E2 {
-
 	var res E2
 	res.A0.Set(&x.A1)
 	res.A1.MulByNonResidueInv(&x.A0)

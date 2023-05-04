@@ -8,7 +8,6 @@ import (
 )
 
 func TestE2AssemblyOps(t *testing.T) {
-
 	parameters := gopter.DefaultTestParameters()
 	parameters.MinSuccessfulTests = 100
 

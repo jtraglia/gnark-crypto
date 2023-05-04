@@ -40,11 +40,9 @@ func TestSplitting(t *testing.T) {
 	if _s.Cmp(&zero) != 0 {
 		t.Fatal("Error split scalar")
 	}
-
 }
 
 func BenchmarkSplitting256(b *testing.B) {
-
 	var lambda, r, s big.Int
 	var l Lattice
 
@@ -57,5 +55,4 @@ func BenchmarkSplitting256(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		SplitScalar(&s, &l)
 	}
-
 }

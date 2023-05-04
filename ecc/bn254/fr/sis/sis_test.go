@@ -111,14 +111,11 @@ func TestReference(t *testing.T) {
 					assert.EqualValues(got, got2, "max nb elements to hash change SIS result")
 				}
 			}
-
 		}
 	}
-
 }
 
 func TestMulMod(t *testing.T) {
-
 	size := 4
 
 	p := make([]fr.Element, size)
@@ -156,14 +153,12 @@ func TestMulMod(t *testing.T) {
 			t.Fatal("product failed")
 		}
 	}
-
 }
 
 // Test the fact that the limb decomposition allows obtaining the original
 // field element by evaluating the polynomial whose the coeffiients are the
 // limbs.
 func TestLimbDecomposition(t *testing.T) {
-
 	// Skipping the test for 32 bits
 	if bits.UintSize == 32 {
 		t.Skip("skipping this test in 32bit.")
@@ -178,7 +173,6 @@ func TestLimbDecomposition(t *testing.T) {
 	}
 
 	for _, testcase := range testcases {
-
 		// clean the sis hasher
 		sis.bufMValues.ClearAll()
 		for i := 0; i < len(sis.bufM); i++ {
@@ -264,7 +258,6 @@ const (
 // achievable . This returns performances in term of ns/field. This also does not
 // account for the time taken for "limb-splitting" the input.
 func estimateSisTheory(p sisParams) float64 {
-
 	// Since the FFT occurs over a coset, we need to multiply all the coefficients
 	// of the input by some coset factors (for an entire polynomial)
 	timeCosetShift := (1 << p.logTwoDegree) * LATENCY_MUL_FIELD_NS
@@ -285,7 +278,6 @@ func estimateSisTheory(p sisParams) float64 {
 }
 
 func BenchmarkSIS(b *testing.B) {
-
 	// max nb field elements to hash
 	const nbInputs = 1 << 16
 
@@ -303,7 +295,6 @@ func BenchmarkSIS(b *testing.B) {
 			in := inputs[:n]
 			benchmarkSIS(b, in, false, param.logTwoBound, param.logTwoDegree, estimateSisTheory(param))
 		}
-
 	}
 }
 
@@ -344,7 +335,6 @@ func benchmarkSIS(b *testing.B, input []fr.Element, sparse bool, logTwoBound, lo
 		b.ReportMetric(float64(nsPerField), "ns/field")
 
 		b.ReportMetric(theoretical, "ns/field(theory)")
-
 	})
 }
 

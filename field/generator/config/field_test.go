@@ -26,7 +26,6 @@ func TestIntToMont(t *testing.T) {
 
 	properties.Property("must recover initial non-montgomery value by repeated halving", prop.ForAll(
 		func(f *FieldConfig, ib [][]uint8) (bool, error) {
-
 			var i big.Int
 			i.SetBytes(ib[0])
 			i.Mod(&i, f.ModulusBig)
@@ -64,7 +63,6 @@ func TestBigIntMatchUint64Slice(t *testing.T) {
 
 	properties.Property("random big.int must match uint64 slice made out of .Bytes()", prop.ForAll(
 		func(f *FieldConfig, ib [][]uint8) (bool, error) {
-
 			var i big.Int
 			i.SetBytes(ib[0])
 			bytes := i.Bytes()
@@ -183,7 +181,6 @@ func uint8SliceSliceToBigIntSlice(f *Extension, in [][]uint8) []big.Int {
 	bytes := make([]byte, f.Base.NbWords*8)
 
 	for i := 0; i < len(res); i++ {
-
 		j := 0
 		for ; j < len(bytes) && j < len(in[i]); j++ {
 			bytes[j] = in[i][len(in[i])-j-1]
@@ -197,9 +194,7 @@ func uint8SliceSliceToBigIntSlice(f *Extension, in [][]uint8) []big.Int {
 
 func genField(t *testing.T) gopter.Gen {
 	return func(genParams *gopter.GenParameters) *gopter.GenResult {
-
 		genField := func() *FieldConfig {
-
 			nbWords := minNbWords + mrand.Intn(maxNbWords-minNbWords) //#nosec G404 -- This is a false positive
 			bitLen := nbWords*64 - mrand.Intn(64)                     //#nosec G404 -- This is a false positive
 
@@ -235,13 +230,11 @@ func genField(t *testing.T) gopter.Gen {
 
 // bigIntMatchUint64Slice is a test helper to match big.Int words against a uint64 slice
 func bigIntMatchUint64Slice(aInt *big.Int, a []uint64) error {
-
 	words := aInt.Bits()
 
 	const steps = 64 / bits.UintSize
 	const filter uint64 = 0xFFFFFFFFFFFFFFFF >> (64 - bits.UintSize)
 	for i := 0; i < len(a)*steps; i++ {
-
 		var wI big.Word
 
 		if i < len(words) {

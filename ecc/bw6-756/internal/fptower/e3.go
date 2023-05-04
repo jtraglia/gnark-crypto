@@ -142,7 +142,6 @@ func (z *E3) MulByElement(x *E3, y *fp.Element) *E3 {
 
 // MulBy01 multiplication by sparse element (c0,c1,0)
 func (z *E3) MulBy01(c0, c1 *fp.Element) *E3 {
-
 	var a, b, tmp, t0, t1, t2 fp.Element
 
 	a.Mul(&z.A0, c0)
@@ -174,7 +173,6 @@ func (z *E3) MulBy01(c0, c1 *fp.Element) *E3 {
 
 // MulBy1 multiplication of E6 by sparse element (0, c1, 0)
 func (z *E3) MulBy1(c1 *fp.Element) *E3 {
-
 	var b, tmp, t0, t1 fp.Element
 	b.Mul(&z.A1, c1)
 
@@ -228,7 +226,6 @@ func (z *E3) MulAssign(x *E3) *E3 {
 
 // Square sets z to the E3-product of x,x, returns z
 func (z *E3) Square(x *E3) *E3 {
-
 	// Algorithm 16 from https://eprint.iacr.org/2010/354.pdf
 	var c4, c5, c1, c2, c3, c0, c6 fp.Element
 

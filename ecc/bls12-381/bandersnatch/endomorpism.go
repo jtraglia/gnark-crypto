@@ -11,7 +11,6 @@ import (
 // phi endomorphism sqrt(-2) \in O(-8)
 // (x,y,z)->\lambda*(x,y,z) s.t. \lamba^2 = -2 mod Order
 func (p *PointProj) phi(p1 *PointProj) *PointProj {
-
 	initOnce.Do(initCurveParams)
 
 	var zz, yy, xy, f, g, h fr.Element
@@ -33,7 +32,6 @@ func (p *PointProj) phi(p1 *PointProj) *PointProj {
 // ScalarMultiplication scalar multiplication (GLV) of a point
 // p1 in projective coordinates with a scalar in big.Int
 func (p *PointProj) scalarMulGLV(p1 *PointProj, scalar *big.Int) *PointProj {
-
 	initOnce.Do(initCurveParams)
 
 	var table [15]PointProj

@@ -150,9 +150,7 @@ func main() {
 
 			// generate iop functions
 			assertNoError(iop.Generate(conf, filepath.Join(curveDir, "fr", "iop"), bgen))
-
 		}(conf)
-
 	}
 
 	for _, conf := range config.TwistedEdwardsCurves {
@@ -168,7 +166,6 @@ func main() {
 			// generate eddsa on companion curves
 			assertNoError(eddsa.Generate(conf, curveDir, bgen))
 		}(conf)
-
 	}
 
 	wg.Add(1)

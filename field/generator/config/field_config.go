@@ -200,7 +200,6 @@ func NewFieldConfig(packageName, elementName, modulus string, useAddChain bool) 
 		if F.UseAddChain {
 			F.SqrtQ3Mod4ExponentData = addchain.GetAddChain(&sqrtExponent)
 		}
-
 	} else {
 		// q ≡ 1 (mod 4)
 		qMod.SetUint64(8)
@@ -314,7 +313,6 @@ func extendedEuclideanAlgo(r, q, rInv, qInv *big.Int) {
 // StringToMont takes an element written in string form, and returns it in Montgomery form
 // Useful for hard-coding in implementation field elements from standards documents
 func (f *FieldConfig) StringToMont(str string) big.Int {
-
 	var i big.Int
 	i.SetString(str, 0)
 	i = f.ToMont(i)
@@ -330,7 +328,6 @@ func (f *FieldConfig) ToMont(nonMont big.Int) big.Int {
 }
 
 func (f *FieldConfig) FromMont(nonMont *big.Int, mont *big.Int) *FieldConfig {
-
 	if f.NbWords == 0 {
 		nonMont.SetInt64(0)
 		return f
@@ -347,7 +344,6 @@ func (f *FieldConfig) Exp(res *big.Int, x *big.Int, pow *big.Int) *FieldConfig {
 	res.SetInt64(1)
 
 	for i := pow.BitLen() - 1; ; {
-
 		if pow.Bit(i) == 1 {
 			res.Mul(res, x)
 		}

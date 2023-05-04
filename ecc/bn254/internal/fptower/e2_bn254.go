@@ -92,7 +92,6 @@ func (z *E2) norm(x *fp.Element) {
 
 // MulBybTwistCurveCoeff multiplies by 3/(9,1)
 func (z *E2) MulBybTwistCurveCoeff(x *E2) *E2 {
-
 	var res E2
 	res.MulByNonResidueInv(x)
 	z.Double(&res).

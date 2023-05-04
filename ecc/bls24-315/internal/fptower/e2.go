@@ -192,7 +192,6 @@ func (z *E2) Exp(x E2, k *big.Int) *E2 {
 // Legendre beforehand.
 // cf https://eprint.iacr.org/2012/685.pdf (algo 10)
 func (z *E2) Sqrt(x *E2) *E2 {
-
 	// precomputation
 	var b, c, d, e, f, x0 E2
 	var _b, o fp.Element

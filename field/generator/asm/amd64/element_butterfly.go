@@ -136,5 +136,4 @@ func (f *FFAmd64) generateButterfly() {
 		f.Push(&registers, t1...)
 		f.Push(&registers, r)
 	}
-
 }

@@ -134,7 +134,6 @@ func (z *E12) Expt(x *E12) *E12 {
 
 // MulBy034 multiplication by sparse element (c0,0,0,c3,c4,0)
 func (z *E12) MulBy034(c0, c3, c4 *E2) *E12 {
-
 	var a, b, d E6
 
 	a.MulByE2(&z.C0, c0)

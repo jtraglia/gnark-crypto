@@ -8,7 +8,6 @@ import (
 )
 
 func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) error {
-
 	// permutation data
 	conf.Package = "permutation"
 	entries := []bavard.Entry{
@@ -17,5 +16,4 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 		{File: filepath.Join(baseDir, "permutation_test.go"), Templates: []string{"permutation.test.go.tmpl"}},
 	}
 	return bgen.Generate(conf, conf.Package, "./permutation/template/", entries...)
-
 }

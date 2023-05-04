@@ -48,7 +48,6 @@ func (z *E6) Expt(x *E6) *E6 {
 // ht, hy = 13, 9
 // c1 = ht+hy = 22 (10110)
 func (z *E6) Expc2(x *E6) *E6 {
-
 	var result E6
 
 	result.CyclotomicSquare(x)
@@ -67,7 +66,6 @@ func (z *E6) Expc2(x *E6) *E6 {
 // ht, hy = 13, 9
 // c1 = ht**2+3*hy**2 = 412 (110011100)
 func (z *E6) Expc1(x *E6) *E6 {
-
 	var result E6
 
 	result.CyclotomicSquare(x)
@@ -90,7 +88,6 @@ func (z *E6) Expc1(x *E6) *E6 {
 
 // MulBy034 multiplication by sparse element (c0,0,0,c3,c4,0)
 func (z *E6) MulBy034(c0, c3, c4 *fp.Element) *E6 {
-
 	var a, b, d E3
 
 	a.MulByElement(&z.B0, c0)

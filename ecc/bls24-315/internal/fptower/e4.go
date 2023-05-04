@@ -174,7 +174,6 @@ func (z *E4) Mul(x, y *E4) *E4 {
 
 // Square set z=x*x in E4 and return z
 func (z *E4) Square(x *E4) *E4 {
-
 	//Algorithm 22 from https://eprint.iacr.org/2010/354.pdf
 	var c0, c2, c3 E2
 	c0.Sub(&x.B0, &x.B1)
@@ -248,7 +247,6 @@ func (z *E4) Conjugate(x *E4) *E4 {
 }
 
 func (z *E4) Halve() {
-
 	z.B0.A0.Halve()
 	z.B0.A1.Halve()
 	z.B1.A0.Halve()
@@ -275,7 +273,6 @@ func (z *E4) Legendre() int {
 // Legendre beforehand.
 // cf https://eprint.iacr.org/2012/685.pdf (algo 10)
 func (z *E4) Sqrt(x *E4) *E4 {
-
 	// precomputation
 	var b, c, d, e, f, x0, _g E4
 	var _b, o E2

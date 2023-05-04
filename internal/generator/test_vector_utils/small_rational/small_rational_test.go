@@ -6,7 +6,6 @@ import (
 )
 
 func TestCmp(t *testing.T) {
-
 	cases := make([]SmallRational, 36)
 
 	for i := int64(0); i < 9; i++ {
@@ -77,7 +76,6 @@ func TestDouble(t *testing.T) {
 		vDoubled.Double(&v)
 		assert.True(t, vDoubled.Equal(&vDoubledExpected),
 			"mismatch at %d: expected 2×%s = %s, saw %s", i, v.text, vDoubledExpected.text, vDoubled.text)
-
 	}
 }
 
@@ -105,5 +103,4 @@ func TestSquare(t *testing.T) {
 func TestSetBytes(t *testing.T) {
 	var c SmallRational
 	c.SetBytes([]byte("firstChallenge.0"))
-
 }

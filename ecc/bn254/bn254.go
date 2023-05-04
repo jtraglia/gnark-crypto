@@ -155,7 +155,6 @@ func init() {
 	ecc.NafDecomposition(optimaAteLoop, loopCounter[:])
 
 	xGen.SetString("4965661367192848881", 10)
-
 }
 
 // Generators return the generators of the r-torsion group, resp. in ker(pi-id), ker(Tr)

@@ -20,7 +20,6 @@ import (
 
 // Frobenius sets z in E4 to x^q, returns z
 func (z *E4) Frobenius(x *E4) *E4 {
-
 	var t [2]E2
 
 	frobCoeffA := fp.Element{

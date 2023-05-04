@@ -83,7 +83,6 @@ func TestAppend(t *testing.T) {
 		for i := 0; i < nbRows; i++ {
 			assert.True(tc.State[i][0].Equal(&p[i]), "a column is not filled correctly")
 		}
-
 	}
 
 	// after a first polynomial has been filled
@@ -141,11 +140,9 @@ func TestAppend(t *testing.T) {
 			assert.True(tc.State[i][5].Equal(&p[i+nbRows]), "a column is not filled correctly")
 		}
 	}
-
 }
 
 func TestLinearCombination(t *testing.T) {
-
 	rho := 4
 	nbRows := 8
 	nbColumns := 8
@@ -176,7 +173,6 @@ func TestLinearCombination(t *testing.T) {
 
 	// at each trial, it's the i-th line which is selected
 	for i := 0; i < nbRows; i++ {
-
 		// used for the random linear combination.
 		// it will act as a selector for the test: it selects the i-th
 		// row of p, when p is written as a matrix M_ij, where M_ij=p[i*m+j].
@@ -201,13 +197,11 @@ func TestLinearCombination(t *testing.T) {
 				t.Fatal("expected linear combination is incorrect")
 			}
 		}
-
 	}
 }
 
 // Test the verification of a correct proof using a mock hash
 func TestCommitmentDummyHash(t *testing.T) {
-
 	var rho, nbColumns, nbRows int
 	rho = 4
 	nbColumns = 8
@@ -259,12 +253,10 @@ func TestCommitmentDummyHash(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
 }
 
 // Test the opening using a dummy hash
 func TestOpeningDummyHash(t *testing.T) {
-
 	var rho, nbColumns, nbRows int
 	rho = 4
 	nbColumns = 8
@@ -335,7 +327,6 @@ func TestOpeningDummyHash(t *testing.T) {
 	if !expectedEval.Equal(&eval) {
 		t.Fatal("p(x) != [ lo ] x M x [ hi ]^t")
 	}
-
 }
 
 // Check the commitments are correctly formed when appending a polynomial
@@ -464,7 +455,6 @@ func TestCommitmentSis(t *testing.T) {
 	}
 	// test 2: we select a subset of the entries
 	{
-
 		entryList := make([]int, 2)
 		entryList[0] = 1
 		entryList[1] = 4
@@ -485,14 +475,12 @@ func TestCommitmentSis(t *testing.T) {
 
 // benches
 func BenchmarkTensorCommitment(b *testing.B) {
-
 	// prepare the tensor commitment
 	logTwoDegree := 4
 	logTwoBound := 4
 	rho := 4
 
 	for i := 0; i < 6; i++ {
-
 		nbColumns := (1 << (3 + i))
 		nbRows := nbColumns
 
@@ -514,7 +502,5 @@ func BenchmarkTensorCommitment(b *testing.B) {
 				tc.Commit()
 			}
 		})
-
 	}
-
 }

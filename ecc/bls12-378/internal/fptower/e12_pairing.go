@@ -14,7 +14,6 @@ func (z *E12) nSquareCompressed(n int) {
 
 // Expt set z to x^t in E12 and return z
 func (z *E12) Expt(x *E12) *E12 {
-
 	// Expt computation is derived from the addition chain:
 	//
 	//	_1000     = 1 << 3
@@ -73,7 +72,6 @@ func (z *E12) Expt(x *E12) *E12 {
 
 // MulBy014 multiplication by sparse element (c0, c1, 0, 0, c4)
 func (z *E12) MulBy014(c0, c1, c4 *E2) *E12 {
-
 	var a, b E6
 	var d E2
 

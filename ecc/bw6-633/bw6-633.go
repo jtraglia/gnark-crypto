@@ -115,7 +115,6 @@ func init() {
 
 	// -x₀
 	xGen.SetString("3218079743", 10) // negative
-
 }
 
 // Generators return the generators of the r-torsion group, resp. in ker(pi-id), ker(Tr)

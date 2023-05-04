@@ -22,7 +22,6 @@ func (z *Element) MulByNonResidue(x *Element) *Element {
 
 // MulByNonResidueInv multiplies a fp.Element by (-4)**-1
 func (z *Element) MulByNonResidueInv(x *Element) *Element {
-
 	nrInv := Element{
 		8571757465769615091,
 		6221412002326125864,

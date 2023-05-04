@@ -45,7 +45,6 @@ func GenerateRationals(bgen *bavard.BatchGenerator) error {
 	return bgen.Generate(gkrConf, "main", "./gkr/template", bavard.Entry{
 		File: filepath.Join("gkr", "test_vectors", "main.go"), Templates: []string{"gkr.test.vectors.gen.go.tmpl", "gkr.test.vectors.go.tmpl"},
 	})
-
 }
 
 func Generate(conf Config, baseDir string, bgen *bavard.BatchGenerator) error {

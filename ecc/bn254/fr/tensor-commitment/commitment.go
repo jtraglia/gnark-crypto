@@ -175,7 +175,6 @@ func NewTensorCommitment(params *TcParams) *TensorCommitment {
 // p[nbRows-1] 	| p[2*nbRows-1]	| p[3*nbRows-1] ..
 // If p doesn't fill a full submatrix it is padded with zeroes.
 func (tc *TensorCommitment) Append(ps ...[]fr.Element) ([][]byte, error) {
-
 	nbColumnsTakenByPs := make([]int, len(ps))
 	totalNumberOfColumnsTakenByPs := 0
 	// Short-hand to avoid writing `tc.params.NbRows` all over the places
@@ -216,7 +215,6 @@ func (tc *TensorCommitment) Append(ps ...[]fr.Element) ([][]byte, error) {
 
 	// put p in the state
 	for iPol, p := range ps {
-
 		pIsPadded := false
 		if len(p)%numRows != 0 {
 			pIsPadded = true
@@ -267,7 +265,6 @@ func (tc *TensorCommitment) Append(ps ...[]fr.Element) ([][]byte, error) {
 // * Encode the rows of the state to get M'
 // * Hash the columns of M'
 func (tc *TensorCommitment) Commit() (Digest, error) {
-
 	// we encode the rows of p using Reed Solomon
 	// encodedState[i][:] = i-th line of M. It is of size domain[1].Cardinality
 	tc.EncodedState = make([][]fr.Element, tc.params.NbRows)
@@ -300,7 +297,6 @@ func (tc *TensorCommitment) Commit() (Digest, error) {
 	tc.isCommitted = true
 
 	return res, nil
-
 }
 
 // BuildProofAtOnceForTest builds a proof to be tested against a previous commitment of a list of
@@ -342,7 +338,6 @@ func (tc *TensorCommitment) BuildProofAtOnceForTest(l []fr.Element, entryList []
 // The proof is the linear combination (using l) of the encoded rows of p written
 // as a matrix. Only the entries contained in entryList are kept.
 func (tc *TensorCommitment) ProverComputeLinComb(l []fr.Element) ([]fr.Element, error) {
-
 	// check that the digest has been computed
 	if !tc.isCommitted {
 		return []fr.Element{}, ErrCommitmentNotDone
@@ -365,7 +360,6 @@ func (tc *TensorCommitment) ProverComputeLinComb(l []fr.Element) ([]fr.Element, 
 }
 
 func (tc *TensorCommitment) ProverOpenColumns(entryList []int) ([][]fr.Element, error) {
-
 	// check that the digest has been computed
 	if !tc.isCommitted {
 		return [][]fr.Element{}, ErrCommitmentNotDone
@@ -389,7 +383,6 @@ func (tc *TensorCommitment) ProverOpenColumns(entryList []int) ([][]fr.Element, 
 Reconstruct the proof from the prover's outputs
 */
 func BuildProof(params *TcParams, linComb []fr.Element, entryList []int, openedCols [][]fr.Element) Proof {
-
 	var res Proof
 
 	// small domain to express the linear combination in canonical form
@@ -409,7 +402,6 @@ func BuildProof(params *TcParams, linComb []fr.Element, entryList []int, openedC
 // evalAtPower returns p(x**n) where p is interpreted as a polynomial
 // p[0] + p[1]X + .. p[len(p)-1]xˡᵉⁿ⁽ᵖ⁾⁻¹
 func evalAtPower(p []fr.Element, x fr.Element, n int) fr.Element {
-
 	var xexp fr.Element
 	xexp.Exp(x, big.NewInt(int64(n)))
 
@@ -420,7 +412,6 @@ func evalAtPower(p []fr.Element, x fr.Element, n int) fr.Element {
 	}
 
 	return res
-
 }
 
 // Verify a proof that digest is the hash of a  polynomial given a proof
@@ -435,12 +426,10 @@ func evalAtPower(p []fr.Element, x fr.Element, n int) fr.Element {
 // one that does FS for you and what that let you do it for yourself. And likewise
 // for the prover.
 func Verify(proof Proof, digest Digest, l []fr.Element, h hash.Hash) error {
-
 	// for each entry in the list -> it corresponds to the sampling
 	// set on which we probabilistically check that
 	// Encoded(linear_combination) = linear_combination(encoded)
 	for i := 0; i < len(proof.EntryList); i++ {
-
 		// check that the hash of the columns correspond to what's in the digest
 		h.Reset()
 		for j := 0; j < len(proof.Columns[i]); j++ {
@@ -460,7 +449,6 @@ func Verify(proof Proof, digest Digest, l []fr.Element, h hash.Hash) error {
 		// of p
 		var linCombEncoded, tmp fr.Element
 		for j := 0; j < len(proof.Columns[i]); j++ {
-
 			// linear combination of the encoded rows at column i
 			tmp.Mul(&proof.Columns[i][j], &l[j])
 			linCombEncoded.Add(&linCombEncoded, &tmp)
@@ -477,10 +465,8 @@ func Verify(proof Proof, digest Digest, l []fr.Element, h hash.Hash) error {
 		// compare both values
 		if !encodedLinComb.Equal(&linCombEncoded) {
 			return ErrProofFailedEncoding
-
 		}
 	}
 
 	return nil
-
 }

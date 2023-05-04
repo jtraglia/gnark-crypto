@@ -31,7 +31,6 @@ func main() {
 	hsh := mimc.NewMiMC()
 
 	for i := range tests {
-
 		hsh.Reset()
 		var x fr.Element
 		for j := range tests[i].In {

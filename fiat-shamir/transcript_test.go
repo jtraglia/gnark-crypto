@@ -21,7 +21,6 @@ import (
 )
 
 func initTranscript() Transcript {
-
 	fs := NewTranscript(sha256.New(), "alpha", "beta", "gamma")
 
 	values := [][]byte{[]byte("v1"), []byte("v2"), []byte("v3"), []byte("v4"), []byte("v5"), []byte("v6")}
@@ -93,7 +92,6 @@ func TestTranscript(t *testing.T) {
 	if !bytes.Equal(gamma, gammaBis) {
 		t.Fatal("computing the same challenge twice should return the same value")
 	}
-
 }
 
 func TestNonExistingChallenge(t *testing.T) {
@@ -106,7 +104,6 @@ func TestNonExistingChallenge(t *testing.T) {
 	if err == nil {
 		t.Fatal(err)
 	}
-
 }
 
 func TestWrongOrder(t *testing.T) {
@@ -119,7 +116,6 @@ func TestWrongOrder(t *testing.T) {
 	if err == nil {
 		t.Fatal(err)
 	}
-
 }
 
 func TestBindToComputedChallenge(t *testing.T) {
@@ -137,5 +133,4 @@ func TestBindToComputedChallenge(t *testing.T) {
 	if err == nil {
 		t.Fatal(err)
 	}
-
 }

@@ -20,5 +20,4 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 		{File: filepath.Join(baseDir, "marshal_test.go"), Templates: []string{"marshal.test.go.tmpl"}},
 	}
 	return bgen.Generate(conf, conf.Package, "./ecdsa/template", entries...)
-
 }

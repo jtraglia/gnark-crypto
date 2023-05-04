@@ -59,7 +59,6 @@ var twoInv = fp.Element{
 
 // MulByNonResidueInv multiplies a E2 by (1,1)^{-1}
 func (z *E2) MulByNonResidueInv(x *E2) *E2 {
-
 	var tmp fp.Element
 	tmp.Add(&x.A0, &x.A1)
 	z.A1.Sub(&x.A1, &x.A0).Mul(&z.A1, &twoInv)
@@ -94,7 +93,6 @@ func (z *E2) norm(x *fp.Element) {
 
 // MulBybTwistCurveCoeff multiplies by 4(1,1)
 func (z *E2) MulBybTwistCurveCoeff(x *E2) *E2 {
-
 	var res E2
 	res.A0.Sub(&x.A0, &x.A1)
 	res.A1.Add(&x.A0, &x.A1)

@@ -10,7 +10,6 @@ import (
 
 // NafDecomposition gets the naf decomposition of a big number
 func NafDecomposition(a *big.Int, result []int8) int {
-
 	var zero, one, two, three big.Int
 
 	one.SetUint64(1)
@@ -24,7 +23,6 @@ func NafDecomposition(a *big.Int, result []int8) int {
 	aCopy.Set(a)
 
 	for aCopy.Cmp(&zero) != 0 {
-
 		// if aCopy % 2 == 0
 		buf.And(&aCopy, &one)
 
@@ -60,7 +58,6 @@ type Lattice struct {
 // are short vectors satisfying v11+v12.λ=v21+v22.λ=0[r].
 // cf https://www.iacr.org/archive/crypto2001/21390189.pdf
 func PrecomputeLattice(r, lambda *big.Int, res *Lattice) {
-
 	var rst [2][3]big.Int
 	var tmp [3]big.Int
 	var quotient, remainder, sqroot, _r, _t big.Int
@@ -82,7 +79,6 @@ func PrecomputeLattice(r, lambda *big.Int, res *Lattice) {
 	// s_i+1 = s_i-1 - q_i.s_i
 	// t_i+1 = t_i-1 - q_i.s_i
 	for rst[1][0].Cmp(&sqroot) >= 1 {
-
 		quotient.Div(&rst[0][0], &rst[1][0])
 		remainder.Mod(&rst[0][0], &rst[1][0])
 
@@ -139,7 +135,6 @@ func PrecomputeLattice(r, lambda *big.Int, res *Lattice) {
 // u+v.λ=s[r].
 // cf https://www.iacr.org/archive/crypto2001/21390189.pdf
 func SplitScalar(s *big.Int, l *Lattice) [2]big.Int {
-
 	var k1, k2 big.Int
 	k1.Mul(s, &l.b1)
 	k2.Mul(s, &l.b2).Neg(&k2)

@@ -52,7 +52,6 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 	}
 
 	for _, towerConf := range towerConfs {
-
 		entries = []bavard.Entry{
 			{
 				File:      filepath.Join(baseDir, fmt.Sprintf("e%d.go", towerConf.TotalDegree)),
@@ -83,7 +82,6 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 			return err
 		}
 		_ = f.Close()
-
 	}
 
 	if conf.Equal(config.BN254) || conf.Equal(config.BLS12_381) {
@@ -95,7 +93,6 @@ func Generate(conf config.Curve, baseDir string, bgen *bavard.BatchGenerator) er
 	}
 
 	return nil
-
 }
 
 type towerConf struct {
